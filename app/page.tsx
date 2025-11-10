@@ -1,23 +1,35 @@
 import Link from 'next/link'
-import Image from 'next/image'
+
+const exhibitions = [
+  {
+    year: '2025',
+    title: '2025 졸업 전시',
+    participants: '95명',
+    works: '200+개',
+    period: '2025. 11. 14 (금) - 2025. 11. 18 (화)',
+    href: 'https://www.smucd2025.com/',
+  },
+]
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAFAFA] text-gray-900 pretendard-font archive-home">
-      {/* 헤더 섹션 */}
-      <div className="border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32 home-header-container">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 home-title">
-            <span className="block mb-4">상명대학교 커뮤니케이션디자인</span>
-            졸업 전시 아카이브
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed home-lead">
-            상명대학교 커뮤니케이션디자인과 역대 온라인 졸업 전시 웹사이트 아카이브 플랫폼입니다. <br />
-            연도별 졸업 작품을 감상하고 디자이너의 작업 과정을 탐색해보세요.
-          </p>
+    <>
+      <main className="min-h-screen bg-[#FAFAFA] text-gray-900 pretendard-font archive-home">
+        {/* 헤더 섹션 */}
+        <div className="border-b border-gray-200">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32 home-header-container">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 home-title">
+              <span className="block mb-4">상명대학교 커뮤니케이션디자인</span>
+              졸업 전시 아카이브
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed home-lead">
+              상명대학교 커뮤니케이션디자인과 역대 온라인 졸업 전시 웹사이트 아카이브 플랫폼입니다. <br />
+              연도별 졸업 작품을 감상하고 디자이너의 작업 과정을 탐색해보세요.
+            </p>
+          </div>
         </div>
-      </div>
-      {/* 본문 섹션 */}
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 home-body-container">
+        {/* 본문 섹션 */}
+        <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 home-body-container">
         {/* 연도별 전시 목록 */}
         <div className="mb-24">
           <div className="flex flex-col mb-12">
@@ -28,7 +40,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-gray-200">
+          <div className="border-t border-gray-200 exhibitions-table">
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
@@ -42,40 +54,52 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="group cursor-pointer">
-                    <td className="py-6 pr-6 border-t border-gray-100">2025</td>
-                    <td className="py-6 pr-6 border-t border-gray-100 font-medium">2025 졸업 전시</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">95명</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">200+개</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">2025. 11. 13 (목) - 2025. 11. 19 (수)</td>
-                    <td className="py-6 border-t border-gray-100 text-right">
-                      <Link href="/archives/years/2025" className="inline-flex items-center text-sm font-medium text-gray-900 group-hover:text-gray-600">
-                        보기
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </Link>
-                    </td>
-                  </tr>
-                  <tr className="group cursor-pointer">
-                    <td className="py-6 pr-6 border-t border-gray-100">2024</td>
-                    <td className="py-6 pr-6 border-t border-gray-100 font-medium">2024 졸업 전시</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">101명</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">202개</td>
-                    <td className="py-6 pr-6 border-t border-gray-100">2024. 12. 4 (수) - 2024. 12. 9 (월)</td>
-                    <td className="py-6 border-t border-gray-100 text-right">
-                      <a href="https://smucd2024.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-medium text-gray-900 group-hover:text-gray-600">
-                        보기
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
-                    </td>
-                  </tr>
-                  {/* 추후 다른 연도 전시 정보 추가 */}
+                  {exhibitions.map((exhibition) => (
+                    <tr className="group cursor-pointer" key={exhibition.year}>
+                      <td className="py-6 pr-6 border-t border-gray-100">{exhibition.year}</td>
+                      <td className="py-6 pr-6 border-t border-gray-100 font-medium">{exhibition.title}</td>
+                      <td className="py-6 pr-6 border-t border-gray-100">{exhibition.participants}</td>
+                      <td className="py-6 pr-6 border-t border-gray-100">{exhibition.works}</td>
+                      <td className="py-6 pr-6 border-t border-gray-100">{exhibition.period}</td>
+                      <td className="py-6 border-t border-gray-100 text-right">
+                        <Link
+                          href={exhibition.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm font-medium text-gray-900 group-hover:text-gray-600"
+                        >
+                          보기
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
+          </div>
+
+          <div className="exhibitions-mobile">
+            {exhibitions.map((exhibition) => (
+              <div className="exhibition-card" key={`mobile-${exhibition.year}`}>
+                <div className="exhibition-card__year">{exhibition.year}</div>
+                <div className="exhibition-card__title">{exhibition.title}</div>
+                <p className="exhibition-card__period">{exhibition.period}</p>
+                <Link
+                  href={exhibition.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="exhibition-card__link inline-flex items-center text-sm font-medium text-gray-900"
+                >
+                  보기
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
         {/* 아카이브 소개 */}
@@ -99,16 +123,17 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
-      
-      {/* 푸터 */}
-      <div className="border-t border-gray-200 mt-12">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 py-12 home-footer-container">
-          <p className="text-sm text-gray-500 text-center">
-            © {new Date().getFullYear()} 상명대학교 커뮤니케이션디자인 전공 졸업 전시 아카이브
-          </p>
         </div>
-      </div>
-    </main>
+        
+        {/* 푸터 */}
+        <div className="border-t border-gray-200 mt-12">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 py-12 home-footer-container">
+            <p className="text-sm text-gray-500 text-center">
+              © {new Date().getFullYear()} 상명대학교 커뮤니케이션디자인 전공 졸업 전시 아카이브
+            </p>
+          </div>
+        </div>
+      </main>
+    </>
   )
-} 
+}

@@ -131,6 +131,82 @@
   .sponsors-section .grid { margin-top: 28px; }
 
   /* Sponsors tag font size set in mobile breakpoint below */
+  .exhibitions-mobile { display: none; }
+  .exhibition-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+    background: #FFFFFF;
+  }
+  .exhibition-card__year {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4338CA;
+    background: #EEF2FF;
+    margin-bottom: 8px;
+  }
+  .exhibition-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111827;
+  }
+  .exhibition-card__period {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 12px;
+  }
+  .exhibition-card__link svg {
+    transition: transform 150ms ease;
+  }
+  .exhibition-card__link:hover svg {
+    transform: translateX(2px);
+  }
+
+  /* 600px breakpoint overrides for archive landing */
+  @media (max-width: 600px) {
+    .archive-home .home-header-container,
+    .archive-home .home-body-container,
+    .archive-home .home-footer-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .archive-home .home-header-container {
+      padding-top: 40px;
+      padding-bottom: 32px;
+    }
+    .archive-home .home-body-container {
+      padding-top: 24px;
+      padding-bottom: 16px;
+    }
+    .archive-home .home-title {
+      font-size: 28px;
+      line-height: 1.35;
+    }
+    .archive-home .home-lead {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .archive-home .exhibitions-table {
+      display: none;
+    }
+    .exhibitions-mobile {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .exhibition-card {
+      padding: 24px;
+    }
+    .exhibition-card__title {
+      font-size: 22px;
+    }
+  }
 
   /* 440px breakpoint overrides */
   @media (max-width: 440px) {
